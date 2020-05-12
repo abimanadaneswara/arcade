@@ -11,13 +11,13 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', function () {
-    return view('auth.loginadmin');
+    return view('welcome');
 });
+
+// Route::get('/', function () {
+//     return view('auth.loginadmin');
+// });
 
 //login admin
 Route::get('/loginadmin','AuthController@login');
@@ -31,3 +31,7 @@ Route::get('/logout','AuthController@logout');
 //menu
 Route::get('/dashboards','DashboardController@dashboard');
 Route::get('/kategori','KategoriController@kategori');
+Auth::routes();
+
+//auth
+Route::get('/home', 'HomeController@index')->name('home');
