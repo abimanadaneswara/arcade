@@ -80,12 +80,12 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
             <i class="ion ion-android-person d-lg-none"></i>
-            <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
+            <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->name }} </div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="profile.html" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
               </a>
-              <a href="#" class="dropdown-item has-icon">
+              <a href="{{ route('admin.logout') }}" class="dropdown-item has-icon">
                 <i class="ion ion-log-out"></i> Logout
               </a>
             </div>
@@ -102,7 +102,7 @@
               <img alt="image" src="{{asset('dist/user2.png')}}">
             </div>
             <div class="sidebar-user-details">
-              <div class="user-name">Ujang Maman</div>
+              <div class="user-name">{{ Auth::user()->name }}</div>
               <div class="user-role">
                 Administrator
               </div>
@@ -111,19 +111,19 @@
           <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
             <li class="active">
-              <a href="/dashboards"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
+              <a href="{{ route('dashboard.index') }}"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
             </li>
             <li>
-              <a href="/ruangan"><i class="ion ion-clipboard"></i><span>Ruangan</span></a>
+              <a href=""><i class="ion ion-clipboard"></i><span>Ruangan</span></a>
             </li>
             <li>
-              <a href="/kategori"><i class="ion ion-flag"></i><span>Kategori Ruangan</span></a>
+              <a href="{{ route('kategori.index') }}"><i class="ion ion-flag"></i><span>Kategori Ruangan</span></a>
             </li>
             <li>
-              <a href="/review"><i class="ion ion-ios-star"></i><span>Review</span></a>
+              <a href=""><i class="ion ion-ios-star"></i><span>Review</span></a>
             </li>
             <li>
-              <a href="/transaksi"><i class="ion ion-cash"></i> <span>Transaksi</span></a>
+              <a href=""><i class="ion ion-cash"></i> <span>Transaksi</span></a>
             </li>
             <li>
               <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>User Manajemen</span></a>
