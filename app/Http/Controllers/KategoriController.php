@@ -6,9 +6,18 @@ use Illuminate\Http\Request;
 
 class KategoriController extends Controller
 {
-    public function kategori()
+    public function __construct()
     {
-        $data_kategori = \App\Kategori::all();
+        $this->middleware('auth:admin');
+    }
+    
+    public function kategori(Request $request)
+    {
+        if ($request->has('cari')) {
+            $data_kategori = \App\Kategori::where('nama_kategori','LIKE','%'.$request->cari.'%')->get();
+        }else {
+            $data_kategori = \App\Kategori::all();
+        }
         return view ('kategori.index',['data_kategori' => $data_kategori]);
     }
 
@@ -29,5 +38,12 @@ class KategoriController extends Controller
         $kategori = \App\Kategori::find($id_kategori);
         $kategori->update($request->all());
         return redirect('/admin/kategori')->with('sukses','Data berhasil diupdate!');
+    }
+
+    public function delete($id_kategori)
+    {
+        $kategori = \App\Kategori::find($id_kategori);
+        $kategori -> delete($kategori);
+        return redirect('/admin/kategori')->with('sukses','Data berhasil dihapus!');
     }
 }

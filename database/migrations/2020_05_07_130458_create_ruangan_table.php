@@ -16,13 +16,19 @@ class CreateRuanganTable extends Migration
         Schema::create('ruangan', function (Blueprint $table) {
             $table->bigIncrements('id_ruangan');
             $table->string('nama_ruangan');
-            $table->string('harga');
-            $table->string('ukuran');
-            $table->text('alamat_ruangan'); 
+            $table->integer('id_kategori');
+            $table->integer('id_pemilik');
+            $table->double('harga');
+            $table->string('layout');
+            $table->integer('ukuran');
+            $table->integer('kapasitas');
+            $table->text('peraturan');
+            $table->text('alamat_ruangan');
+            $table->string('kecamatan');
+            $table->string('kabupaten');
+            $table->string('provinsi');
+            $table->longText('deskripsi');
             $table->string('gambar');
-            $table->text('deskripsi');
-            $table->string('id_kategori');
-            $table->string('id_pemilik');
             $table->timestamps();
         });
     }

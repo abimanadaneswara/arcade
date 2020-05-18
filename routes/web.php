@@ -49,4 +49,5 @@ Route::group(['prefix' => 'admin'], function(){
     Route::post('/kategori/create','KategoriController@create')->name('kategori.create');
     Route::get('/kategori/{id_kategori}/edit','KategoriController@edit')->name('kategori.edit');
     Route::post('/kategori/{id_kategori}/update','KategoriController@update')->name('kategori.update');
+    Route::get('/kategori/{id_kategori}/delete','KategoriController@delete')->name('kategori.delete');
 });
