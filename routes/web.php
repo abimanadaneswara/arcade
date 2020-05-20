@@ -50,4 +50,10 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('/kategori/{id_kategori}/edit','KategoriController@edit')->name('kategori.edit');
     Route::post('/kategori/{id_kategori}/update','KategoriController@update')->name('kategori.update');
     Route::get('/kategori/{id_kategori}/delete','KategoriController@delete')->name('kategori.delete');
+    
+    Route::get('/ruangan','RuanganController@ruangan')->name('ruangan.index');
+    Route::post('/ruangan/create','RuanganController@create')->name('ruangan.create');
+    Route::get('/ruangan/{id_ruangan}/edit','RuanganController@edit')->name('ruangan.edit');
+    Route::post('/ruangan/{id_ruangan}/update','RuanganController@update')->name('ruangan.update');
+    Route::get('/ruangan/{id_ruangan}/delete','RuanganController@delete')->name('ruangan.delete');
 });

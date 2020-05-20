@@ -17,7 +17,7 @@
                     {{csrf_field()}}
                     <div class="form-group">
                         <label>Nama Kategori</label>
-                    <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" value="{{$kategori->nama_kategori}}">
+                        <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" value="{{$kategori->nama_kategori}}">
                         <div class="invalid-feedback">
                         Please fill in the name
                         </div>

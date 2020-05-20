@@ -72,5 +72,42 @@
     </div>
   </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kategori</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ route('kategori.create') }}" method="POST">
+          {{csrf_field()}}
+          <div class="form-group">
+            <label>Nama Kategori</label>
+            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori">
+            <div class="invalid-feedback">
+              Please fill in the name
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Deskripsi Kategori</label>
+            <textarea class="form-control" required="" rows="3" name="desc_kategori"></textarea>
+            <div class="invalid-feedback">
+              Please fill in the description
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="reset" class="btn btn-primary">Reset</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
     

@@ -68,7 +68,7 @@
               <a href="{{ route('dashboard.index') }}"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
             </li>
             <li>
-              <a href=""><i class="ion ion-clipboard"></i><span>Ruangan</span></a>
+              <a href="{{ route('ruangan.index') }}"><i class="ion ion-clipboard"></i><span>Ruangan</span></a>
             </li>
             <li>
               <a href="{{ route('kategori.index') }}"><i class="ion ion-flag"></i><span>Kategori Ruangan</span></a>
@@ -87,6 +87,7 @@
                 <li><a href="/userset"><i class="ion ion-ios-circle-outline"></i> User</a></li>
               </ul>
             </li>
+          </ul>
         </aside>
       </div>
     <div class="main-content">
