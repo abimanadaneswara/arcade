@@ -82,9 +82,9 @@
             <li>
               <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>User Manajemen</span></a>
               <ul class="menu-dropdown">
-                <li><a href="/adminset"><i class="ion ion-ios-circle-outline"></i> Administrator</a></li>
+                <li><a href="{{ route('administrator.index') }}"><i class="ion ion-ios-circle-outline"></i> Administrator</a></li>
                 <li><a href="/ownerset"><i class="ion ion-ios-circle-outline"></i> Pemilik Gedung</a></li>
-                <li><a href="/userset"><i class="ion ion-ios-circle-outline"></i> User</a></li>
+                <li><a href="{{ route('user.index') }}"><i class="ion ion-ios-circle-outline"></i> User</a></li>
               </ul>
             </li>
           </ul>

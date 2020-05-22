@@ -2,13 +2,26 @@
 @section('content')
 <section class="section">
   <h1 class="section-header">
-    <div>Ruangan</div>
+    <div>Data Ruangan</div>
   </h1>
   <div class="section-body">
     <div class="row">
       <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
           <div class="card-header">
+            @if (session('sukses'))
+            {{-- alert --}}
+            <div class="alert alert-primary alert-has-icon alert-dismissible show fade">
+              <div class="alert-icon"><i class="ion ion-ios-lightbulb-outline"></i></div>
+              <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                  <span>×</span>
+                </button>
+                <div class="alert-title">{{session('sukses')}}</div>
+              </div>
+            </div>
+            {{-- alert --}}
+            @endif
             <div class="float-right">
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 <i class="ion ion-plus"></i>
@@ -98,9 +111,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Tambah Data Ruangan</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        {{-- <div class="float-right">
+          <a data-dismiss="#mycard-dimiss" class="btn btn-icon"><i class="ion ion-close"></i></a>
+        </div> --}}
+          {{-- <span aria-hidden="true">&times;</span> --}}
       </div>
       <div class="modal-body">
         <form action="{{ route('ruangan.create') }}" method="POST">
@@ -112,18 +127,20 @@
               Please fill in the name
             </div>
           </div>
-          <div class="form-group">
-            <label>Kategori Ruangan</label>
-            <input type="text" class="form-control" id="kategori_id_kategori" name="kategori_id_kategori">
-            <div class="invalid-feedback">
-              Please fill in the name
+          <div class="row">
+            <div class="form-group col-6">
+              <label>Kategori Ruangan</label>
+              <input type="text" class="form-control" id="kategori_id_kategori" name="kategori_id_kategori">
+              <div class="invalid-feedback">
+                Please fill in the name
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label>Pemilik</label>
-            <input type="text" class="form-control" id="id_pemilik" name="id_pemilik">
-            <div class="invalid-feedback">
-              Please fill in the description
+            <div class="form-group col-6">
+              <label>Pemilik</label>
+              <input type="text" class="form-control" id="id_pemilik" name="id_pemilik">
+              <div class="invalid-feedback">
+                Please fill in the description
+              </div>
             </div>
           </div>
           <div class="form-group">
@@ -133,48 +150,54 @@
               Please fill in the name
             </div>
           </div>
-          <div class="form-group">
-            <label>Ukuran Ruangan</label>
-            <input type="text" class="form-control" id="ukuran" name="ukuran">
-            <div class="invalid-feedback">
-              Please fill in the name
+          <div class="row">
+            <div class="form-group col-6">
+              <label>Ukuran Ruangan</label>
+              <input type="text" class="form-control" id="ukuran" name="ukuran">
+              <div class="invalid-feedback">
+                Please fill in the size
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label>Kapasitas Ruangan</label>
-            <input type="text" class="form-control" id="kapasitas" name="kapasitas">
-            <div class="invalid-feedback">
-              Please fill in the name
+            <div class="form-group col-6">
+              <label>Kapasitas Ruangan</label>
+              <input type="text" class="form-control" id="kapasitas" name="kapasitas">
+              <div class="invalid-feedback">
+                Please fill in the capasity
+              </div>
             </div>
           </div>
           <div class="form-group">
             <label>Alamat Ruangan</label>
             <textarea class="form-control" required="" rows="2" name="alamat_ruangan"></textarea>
             <div class="invalid-feedback">
-              Please fill in the description
+              Please fill in the address
             </div>
           </div>
-          <div class="form-group">
-            <label>Kecamatan</label>
-            <input type="text" class="form-control" id="kecamatan" name="kecamatan">
-            <div class="invalid-feedback">
-              Please fill in the name
+          <div class="row">
+            <div class="form-group col-6">
+              <label>Kecamatan</label>
+              <input type="text" class="form-control" id="kecamatan" name="kecamatan">
+              <div class="invalid-feedback">
+                Please fill in the sub-distric
+              </div>
+            </div>
+            <div class="form-group col-6">
+              <label>Kabupaten</label>
+              <input type="text" class="form-control" id="kabupaten" name="kabupaten">
+              <div class="invalid-feedback">
+                Please fill in the distric
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label>Kabupaten</label>
-            <input type="text" class="form-control" id="kabupaten" name="kabupaten">
-            <div class="invalid-feedback">
-              Please fill in the name
+          {{-- <div class="row"> --}}
+            <div class="form-group">
+              <label>Provinsi</label>
+              <input type="text" class="form-control" id="provinsi" name="provinsi">
+              <div class="invalid-feedback">
+                Please fill in the province
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label>Provinsi</label>
-            <input type="text" class="form-control" id="provinsi" name="provinsi">
-            <div class="invalid-feedback">
-              Please fill in the name
-            </div>
-          </div>
+          {{-- </div> --}}
           <div class="form-group">
             <label>Deskripsi Ruangan</label>
             <textarea class="form-control" required="" rows="5" name="deskripsi"></textarea>

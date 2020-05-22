@@ -45,6 +45,7 @@ Route::group(['prefix' => 'admin'], function(){
 
     //menu
     Route::get('/dashboards','DashboardController@dashboard')->name('dashboards.index');
+
     Route::get('/kategori','KategoriController@kategori')->name('kategori.index');
     Route::post('/kategori/create','KategoriController@create')->name('kategori.create');
     Route::get('/kategori/{id_kategori}/edit','KategoriController@edit')->name('kategori.edit');
@@ -56,4 +57,22 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('/ruangan/{id_ruangan}/edit','RuanganController@edit')->name('ruangan.edit');
     Route::post('/ruangan/{id_ruangan}/update','RuanganController@update')->name('ruangan.update');
     Route::get('/ruangan/{id_ruangan}/delete','RuanganController@delete')->name('ruangan.delete');
+
+    Route::get('/administrator','AdminController@admin')->name('administrator.index');
+    Route::post('/administrator/create','AdminController@create')->name('administrator.create');
+    Route::get('/administrator/{id}/edit','AdminController@edit')->name('administrator.edit');
+    Route::post('/administrator/{id}/update','AdminController@update')->name('administrator.update');
+    Route::get('/administrator/{id}/delete','AdminController@delete')->name('administrator.delete');
+
+    Route::get('/pemilik','PemilikController@pemilik')->name('pemilik.index');
+    Route::post('/pemilik/create','PemilikController@create')->name('pemilik.create');
+    Route::get('/pemilik/{id_pemilik}/edit','PemilikController@edit')->name('pemilik.edit');
+    Route::post('/pemilik/{id_pemilik}/update','PemilikController@update')->name('pemilik.update');
+    Route::get('/pemilik/{id_pemilik}/delete','PemilikController@delete')->name('pemilik.delete');
+
+    Route::get('/user','UserController@user')->name('user.index');
+    // Route::post('/user/create','UserController@create')->name('user.create');
+    Route::get('/user/{id}/edit','UserController@edit')->name('user.edit');
+    Route::post('/user/{id}/update','UserController@update')->name('user.update');
+    Route::get('/user/{id}/delete','UserController@delete')->name('user.delete');
 });

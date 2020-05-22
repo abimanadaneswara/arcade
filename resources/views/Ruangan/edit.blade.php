@@ -13,26 +13,6 @@
                 <h4>Edit Data Ruangan</h4>
             </div>
             <div class="card-body">
-                {{-- <form action="{{ route('kategori.update', $kategori->id_kategori) }}" method="POST">
-                    {{csrf_field()}}
-                    <div class="form-group">
-                        <label>Nama Kategori</label>
-                        <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" value="{{$kategori->nama_kategori}}">
-                        <div class="invalid-feedback">
-                        Please fill in the name
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Deskripsi Kategori</label>
-                        <textarea class="form-control" required="" rows="3" name="desc_kategori">{{$kategori->desc_kategori}}</textarea>
-                        <div class="invalid-feedback">
-                        Please fill in the description
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
-                </form> --}}
                 <form action="{{ route('ruangan.update', $ruangan->id_ruangan) }}" method="POST">
                   {{csrf_field()}}
                   <div class="form-group">
@@ -42,18 +22,20 @@
                       Please fill in the name
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label>Kategori Ruangan</label>
-                    <input type="text" class="form-control" id="kategori_id_kategori" name="kategori_id_kategori" value="{{$ruangan->kategori_id_kategori}}">
-                    <div class="invalid-feedback">
-                      Please fill in the name
+                  <div class="row">
+                    <div class="form-group col-6">
+                      <label>Kategori Ruangan</label>
+                      <input type="text" class="form-control" id="kategori_id_kategori" name="kategori_id_kategori" value="{{$ruangan->kategori_id_kategori}}">
+                      <div class="invalid-feedback">
+                        Please fill in the name
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label>Pemilik</label>
-                    <input type="text" class="form-control" id="id_pemilik" name="id_pemilik" value="{{$ruangan->id_pemilik}}">
-                    <div class="invalid-feedback">
-                      Please fill in the description
+                    <div class="form-group col-6">
+                      <label>Pemilik</label>
+                      <input type="text" class="form-control" id="id_pemilik" name="id_pemilik" value="{{$ruangan->id_pemilik}}">
+                      <div class="invalid-feedback">
+                        Please fill in the description
+                      </div>
                     </div>
                   </div>
                   <div class="form-group">
@@ -63,18 +45,20 @@
                       Please fill in the name
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label>Ukuran Ruangan</label>
-                    <input type="text" class="form-control" id="ukuran" name="ukuran" value="{{$ruangan->ukuran}}">
-                    <div class="invalid-feedback">
-                      Please fill in the name
+                  <div class="row">
+                    <div class="form-group col-6">
+                      <label>Ukuran Ruangan</label>
+                      <input type="text" class="form-control" id="ukuran" name="ukuran" value="{{$ruangan->ukuran}}">
+                      <div class="invalid-feedback">
+                        Please fill in the name
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label>Kapasitas Ruangan</label>
-                    <input type="text" class="form-control" id="kapasitas" name="kapasitas" value="{{$ruangan->kapasitas}}">
-                    <div class="invalid-feedback">
-                      Please fill in the name
+                    <div class="form-group col-6">
+                      <label>Kapasitas Ruangan</label>
+                      <input type="text" class="form-control" id="kapasitas" name="kapasitas" value="{{$ruangan->kapasitas}}">
+                      <div class="invalid-feedback">
+                        Please fill in the name
+                      </div>
                     </div>
                   </div>
                   <div class="form-group">
@@ -84,18 +68,20 @@
                       Please fill in the description
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label>Kecamatan</label>
-                    <input type="text" class="form-control" id="kecamatan" name="kecamatan" value="{{$ruangan->kecamatan}}">
-                    <div class="invalid-feedback">
-                      Please fill in the name
+                  <div class="row">
+                    <div class="form-group col-6">
+                      <label>Kecamatan</label>
+                      <input type="text" class="form-control" id="kecamatan" name="kecamatan" value="{{$ruangan->kecamatan}}">
+                      <div class="invalid-feedback">
+                        Please fill in the name
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label>Kabupaten</label>
-                    <input type="text" class="form-control" id="kabupaten" name="kabupaten" value="{{$ruangan->kabupaten}}">
-                    <div class="invalid-feedback">
-                      Please fill in the name
+                    <div class="form-group  col-6">
+                      <label>Kabupaten</label>
+                      <input type="text" class="form-control" id="kabupaten" name="kabupaten" value="{{$ruangan->kabupaten}}">
+                      <div class="invalid-feedback">
+                        Please fill in the name
+                      </div>
                     </div>
                   </div>
                   <div class="form-group">

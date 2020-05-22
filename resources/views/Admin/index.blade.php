@@ -2,33 +2,20 @@
 @section('content')
 <section class="section">
   <h1 class="section-header">
-    <div>Data Kategori Ruangan</div> 
+    <div>Data Administrator</div>
   </h1>
   <div class="section-body">
     <div class="row">
       <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
           <div class="card-header">
-            @if (session('sukses'))
-            {{-- alert --}}
-            <div class="alert alert-primary alert-has-icon alert-dismissible show fade">
-              <div class="alert-icon"><i class="ion ion-ios-lightbulb-outline"></i></div>
-              <div class="alert-body">
-                <button class="close" data-dismiss="alert">
-                  <span>×</span>
-                </button>
-                <div class="alert-title">{{session('sukses')}}</div>
-              </div>
-            </div>
-            {{-- alert --}}
-            @endif
             <div class="float-right">
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 <i class="ion ion-plus"></i>
               </button>
             </div>
             <div class="float-left">
-              <form action="{{ route('kategori.index') }}" method="GET">
+              <form action="{{ route('administrator.index') }}" method="GET">
                 <div class="input-group">
                   <input name="cari" type="text" class="form-control" placeholder="Search">
                   <div class="input-group-btn">
@@ -44,17 +31,19 @@
                {{-- {{ dd($data_kategori)}} --}} 
                <tr>
                   <th scope="col">Nama</th>
-                  <th scope="col">Deskripsi</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Password</th>
                   <th scope="col">Aksi</th>
                 </tr>
                 
-                @foreach ($data_kategori as $kategori)
+                @foreach ($data_admin as $admin)
                 <tr>
-                    <td>{{$kategori->nama_kategori}}</td>
-                    <td>{{$kategori->desc_kategori}}</td>
+                    <td>{{$admin->name}}</td>
+                    <td>{{$admin->email}}</td>
+                    <td>{{$admin->password}}</td>
                     <td>
-                      <a href="{{ route('kategori.edit', $kategori->id_kategori) }}" class="btn btn-sm btn-warning"><i class="ion ion-android-create"></i></a>
-                      <a href="{{ route('kategori.delete', $kategori->id_kategori) }}" class="btn btn-sm btn-danger" onclick="return confirm ('Hapus data ini?')"><i class="ion ion-trash-a"></i></a>
+                      <a href="{{ route('administrator.edit', $admin->id) }}" class="btn btn-sm btn-warning"><i class="ion ion-android-create"></i></a>
+                      <a href="{{ route('administrator.delete', $admin->id) }}" class="btn btn-sm btn-danger" onclick="return confirm ('Hapus data ini?')"><i class="ion ion-trash-a"></i></a>
                     </td>
                 </tr>
                 @endforeach
@@ -78,7 +67,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{ route('kategori.create') }}" method="POST">
+        <form action="{{ route('administrator.create') }}" method="POST">
           {{csrf_field()}}
           <div class="form-group">
             <label>Nama Kategori</label>

@@ -11,14 +11,13 @@ class RuanganController extends Controller
         $this->middleware('auth:admin');
     }
 
-    public function ruangan()
+    public function ruangan(Request $request)
     {
-        // if ($request->has('cari')) {
-        //     $data_ruangan = \App\Ruangan::where('nama_ruangan','LIKE','%'.$request->cari.'%')->get();
-        // }else {
-        //     $data_ruangan = \App\Ruangan::all();
-        // }
-        $data_ruangan = \App\Ruangan::all();
+        if ($request->has('cari')) {
+            $data_ruangan = \App\Ruangan::where('nama_ruangan','LIKE','%'.$request->cari.'%')->get();
+        }else {
+            $data_ruangan = \App\Ruangan::all();
+        }
         return view ('ruangan.index',['data_ruangan' => $data_ruangan]); 
     } 
     
