@@ -10,9 +10,9 @@
         <div class="card">
           <div class="card-header">
             <div class="float-right">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 <i class="ion ion-plus"></i>
-              </button>
+              </button> --}}
             </div>
             <div class="float-left">
               <form action="{{ route('user.index') }}" method="GET">

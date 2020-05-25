@@ -28,39 +28,39 @@ class AdminController extends Controller
 
     public function admin(Request $request)
     {
-        // if ($request->has('cari')) {
-        //     $data_admin = \App\Admin::where('nama_admin','LIKE','%'.$request->cari.'%')->get();
-        // }else {
-        //     $data_admin = \App\Admin::all();
-        // }
-        $data_admin = \App\Admin::all();
+        if ($request->has('cari')) {
+            $data_admin = \App\Admin::where('name','LIKE','%'.$request->cari.'%')->get();
+        }else {
+            $data_admin = \App\Admin::all();
+        }
         return view ('admin.index',['data_admin' => $data_admin]);
         
     }
 
-    // public function create(Request $request)
-    // {
-    //     \App\Admin::create($request->all());
-    //     return redirect('/admin/administrator')->with('sukses','Data berhasil disimpan!');
-    // }
+    public function create(Request $request)
+    {
+        \App\Admin::create($request->all());
+        return redirect('/admin/administrator')->with('sukses','Data berhasil disimpan!');
+    } 
 
-    // public function edit($id)
-    // {
-    //     $kategori = \App\Admin::find($id);
-    //     return view ('admin.edit',['admin' => $admin]);
-    // }
+    public function edit($id)
+    {
+        $admin = \App\Admin::find($id);
+        return view ('admin.edit',['admin' => $admin]);
+    }
 
-    // public function update(Request $request, $id)
-    // {
-    //     $admin = \App\Admin::find($id);
-    //     $admin->update($request->all());
-    //     return redirect('/admin/administrator')->with('sukses','Data berhasil diupdate!');
-    // }
+    public function update(Request $request, $id)
+    {
+        $admin = \App\Admin::find($id);
+        $admin->update($request->all());
+        return redirect('/admin/administrator')->with('sukses','Data berhasil diupdate!');
+    }
 
-    // public function delete($id)
-    // {
-    //     $admin = \App\Admin::find($admin);
-    //     $admin -> delete($admin);
-    //     return redirect('/admin/administrator')->with('sukses','Data berhasil dihapus!');
-    // }
+    public function delete($id)
+    {
+        $admin = \App\Admin::find($id);
+        $admin -> delete($admin);
+        return redirect('/admin/administrator')->with('sukses','Data berhasil dihapus!');
+    }
+
 }

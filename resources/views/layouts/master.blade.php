@@ -74,7 +74,7 @@
               <a href="{{ route('kategori.index') }}"><i class="ion ion-flag"></i><span>Kategori Ruangan</span></a>
             </li>
             <li>
-              <a href=""><i class="ion ion-ios-star"></i><span>Review</span></a>
+            <a href="{{ route('ulasan.index') }}"><i class="ion ion-ios-star"></i><span>Review</span></a>
             </li>
             <li>
               <a href=""><i class="ion ion-cash"></i> <span>Transaksi</span></a>

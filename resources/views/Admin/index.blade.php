@@ -32,7 +32,7 @@
                <tr>
                   <th scope="col">Nama</th>
                   <th scope="col">Email</th>
-                  <th scope="col">Password</th>
+                  <th scope="col">Created At</th>
                   <th scope="col">Aksi</th>
                 </tr>
                 
@@ -40,7 +40,7 @@
                 <tr>
                     <td>{{$admin->name}}</td>
                     <td>{{$admin->email}}</td>
-                    <td>{{$admin->password}}</td>
+                    <td>{{$admin->created_at}}</td>
                     <td>
                       <a href="{{ route('administrator.edit', $admin->id) }}" class="btn btn-sm btn-warning"><i class="ion ion-android-create"></i></a>
                       <a href="{{ route('administrator.delete', $admin->id) }}" class="btn btn-sm btn-danger" onclick="return confirm ('Hapus data ini?')"><i class="ion ion-trash-a"></i></a>
@@ -61,7 +61,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kategori</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Administrator</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -70,17 +70,24 @@
         <form action="{{ route('administrator.create') }}" method="POST">
           {{csrf_field()}}
           <div class="form-group">
-            <label>Nama Kategori</label>
-            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori">
+            <label>Nama</label>
+            <input type="text" class="form-control" id="name" name="name">
             <div class="invalid-feedback">
               Please fill in the name
             </div>
           </div>
           <div class="form-group">
-            <label>Deskripsi Kategori</label>
-            <textarea class="form-control" required="" rows="3" name="desc_kategori"></textarea>
+            <label>Email</label>
+            <input name="email" type="email" class="form-control">
             <div class="invalid-feedback">
-              Please fill in the description
+              Please fill in the name
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input name="password" type="password" class="form-control">
+            <div class="invalid-feedback">
+              Please fill in the name
             </div>
           </div>
           <div class="modal-footer">

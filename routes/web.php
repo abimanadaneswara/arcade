@@ -58,6 +58,12 @@ Route::group(['prefix' => 'admin'], function(){
     Route::post('/ruangan/{id_ruangan}/update','RuanganController@update')->name('ruangan.update');
     Route::get('/ruangan/{id_ruangan}/delete','RuanganController@delete')->name('ruangan.delete');
 
+    Route::get('/ulasan','UlasanController@ulasan')->name('ulasan.index');
+    Route::post('/ulasan/create','UlasanController@create')->name('ulasan.create');
+    Route::get('/ulasan/{id_ulasan}/edit','UlasanController@edit')->name('ulasan.edit');
+    Route::post('/ulasan/{id_ulasan}/update','UlasanController@update')->name('ulasan.update');
+    Route::get('/ulasan/{id_ulasan}/delete','UlasanController@delete')->name('ulasan.delete');
+
     Route::get('/administrator','AdminController@admin')->name('administrator.index');
     Route::post('/administrator/create','AdminController@create')->name('administrator.create');
     Route::get('/administrator/{id}/edit','AdminController@edit')->name('administrator.edit');
