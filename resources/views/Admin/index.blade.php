@@ -1,4 +1,4 @@
-@extends('layouts.master')
+{{-- @extends('layouts.master')
 @section('content')
 <section class="section">
   <h1 class="section-header">
@@ -28,12 +28,11 @@
           <div class="card-body p-0">
             <div class="table-responsive">
               <table class="table table-bordered">
-               {{-- {{ dd($data_kategori)}} --}} 
                <tr>
                   <th scope="col">Nama</th>
                   <th scope="col">Email</th>
                   <th scope="col">Created At</th>
-                  <th scope="col">Aksi</th>
+                  <th scope="col">Aksi</th> 
                 </tr>
                 
                 @foreach ($data_admin as $admin)
@@ -54,10 +53,10 @@
       </div>
     </div>
   </div>
-</section>
+</section> --}}
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -99,5 +98,145 @@
     </div>
   </div>
 </div>
+@endsection --}}
+    
+@extends('layouts.master')
+@section('content')
+  <div class="page-header">
+    <h4 class="page-title">Administrator</h4>
+    <ul class="breadcrumbs">
+      <li class="nav-home">
+        <a href="{{ route('dashboard.index') }}">
+          <i class="flaticon-home"></i>
+        </a>
+      </li>
+      <li class="separator">
+        <i class="flaticon-right-arrow"></i>
+      </li>
+      <li class="nav-item">
+        <a href="#">User Manajemen</a>
+      </li>
+      <li class="separator">
+        <i class="flaticon-right-arrow"></i>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('administrator.index') }}">Administrator</a>
+      </li>
+      {{--  --}}
+    </ul>
+  </div>
+  <!-- Data Table -->
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        @if (session('sukses'))
+            <div class="alert alert-success" role="alert">
+              {{session('sukses')}}
+            </div>
+            <!-- Alert -->
+            @endif
+        <div class="d-flex align-items-center">
+          <h4 class="card-title">Form Data Administrator</h4>
+          <button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
+            <i class="fa fa-plus"></i>
+            Tambah Data
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+         <!-- Modal -->
+         <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header no-bd">
+                <h5 class="modal-title">
+                  <span class="fw-mediumbold">
+                  Form</span> 
+                  <span class="fw-light">
+                    tambah data administrator
+                  </span>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                {{-- <p class="small">Create a new row using this form, make sure you fill them all</p> --}}
+                <form action="{{ route('administrator.create') }}" method="POST">
+                  {{csrf_field()}}
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group form-group-default">
+                        <label>Nama</label>
+                        <input id="name" name="name" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group form-group-default">
+                        <label>Email</label>
+                        <input name="email" type="email" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group form-group-default">
+                        <label>Password</label>
+                        <input name="password" type="password" class="form-control">
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-footer no-bd">
+                <button type="reset" class="btn btn-danger">Reset</button>
+                <button type="submit" id="addRowButton" class="btn btn-primary">Tambah</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+        <form action="{{ route('administrator.index') }}" method="GET">
+          {{csrf_field()}}
+        <div class="table-responsive">
+          <table id="multi-filter-select" class="display table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Create At</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($data_admin as $admin)
+              <tr>
+                  <td>{{$admin->name}}</td>
+                  <td>{{$admin->email}}</td>
+                  <td>{{$admin->created_at}}</td>
+                  <td>
+                    <div class="form-button-action">
+                      <a href="{{ route('administrator.edit', $admin->id) }}">
+                        <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit">
+                          <i class="fa fa-edit"></i>
+                        </button>
+                      </a>
+                        {{-- <button type="button" class="btn btn-success" id="alert_demo_7"> --}}
+                      <a href="{{ route('administrator.delete', $admin->id) }}">
+                          <button type="button" data-toggle="tooltip" class="btn btn-link btn-danger" id="alert_demo_7" data-original-title="Delete">
+                          <i class="fa fa-times"></i>
+                        </button>
+                      </a>
+                    </div>
+                  </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  <!-- Data Table -->
 @endsection
+    
     

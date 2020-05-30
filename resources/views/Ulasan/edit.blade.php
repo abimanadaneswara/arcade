@@ -1,4 +1,4 @@
-@extends('layouts.master')
+{{-- @extends('layouts.master')
 
 @section('content')
 <section class="section">
@@ -48,4 +48,49 @@
 </section>
 @endsection
         
+     --}}
+@extends('layouts.master')
+@section('content')
+
+<div class="row">
+  <div class="col-12 col-md-12 col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4>Edit Data Ulasan Ruangan</h4>
+        </div>
+        <div class="card-body">
+          <form action="{{ route('ulasan.update', $ulasan->id_ulasan) }}" method="POST">
+            {{csrf_field()}}
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group form-group-default">
+                  <label>Nama</label>
+                  <input id="nama" name="nama" type="text" class="form-control" value="{{$ulasan->nama}}">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group form-group-default">
+                  <label>Pekerjaan</label>
+                <input id="pekerjaan" name="pekerjaan" type="text" class="form-control" value="{{$ulasan->pekerjaan}}">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group form-group-default">
+                  <label>Deskripsi Ulasan</label>
+                <textarea class="form-control" required="" rows="6" name="desc_ulasan">{{$ulasan->desc_ulasan}}</textarea>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer no-bd">
+          <button type="submit" id="addRowButton" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+@endsection
+  
     

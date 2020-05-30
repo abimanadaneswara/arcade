@@ -1,4 +1,4 @@
-@extends('layouts.master')
+{{-- @extends('layouts.master')
 
 @section('content')
 <section class="section">
@@ -46,6 +46,55 @@
     </div>
   </div>
 </section>
-@endsection
-        
-    
+@endsection --}}
+
+@extends('layouts.master')
+@section('content')
+
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Edit Data Administrator</h4>
+            </div>
+            <div class="card-body">
+              <form action="{{ route('administrator.update', $admin->id) }}" method="POST">
+                  {{csrf_field()}}
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group form-group-default">
+                        <label>Nama</label>
+                      <input id="name" name="name" type="text" class="form-control" value="{{$admin->name}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group form-group-default">
+                        <label>Email</label>
+                        <input name="email" type="email" class="form-control" value="{{$admin->email}}">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group form-group-default">
+                        <label>Password</label>
+                        <input name="" type="password" class="form-control" value="{{$admin->password}}" disabled="disabled">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group form-group-default">
+                        <label>New Password</label>
+                        <input name="password" type="password" class="form-control">
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-footer no-bd">
+                <button type="submit" id="addRowButton" class="btn btn-primary">Simpan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  @endsection
+                  

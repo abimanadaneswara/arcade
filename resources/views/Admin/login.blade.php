@@ -87,8 +87,6 @@
 	<link rel="stylesheet" href="{{asset('loginadmin/assets/vendor/linearicons/style.css')}}">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{asset('loginadmin/assets/css/main.css')}}">
-	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-	<link rel="stylesheet" href="{{asset('loginadmin/assets/css/demo.css')}}">
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->

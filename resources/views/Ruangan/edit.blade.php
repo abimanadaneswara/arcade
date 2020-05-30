@@ -1,11 +1,6 @@
 @extends('layouts.master')
-
 @section('content')
-<section class="section">
-  <h1 class="section-header">
-    <div>Ruangan</div>
-  </h1>
-  <div class="section-body">
+
     <div class="row">
       <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
@@ -15,99 +10,81 @@
             <div class="card-body">
                 <form action="{{ route('ruangan.update', $ruangan->id_ruangan) }}" method="POST">
                   {{csrf_field()}}
-                  <div class="form-group">
-                    <label>Nama Ruangan</label>
-                    <input type="text" class="form-control" id="nama_ruangan" name="nama_ruangan" value="{{$ruangan->nama_ruangan}}">
-                    <div class="invalid-feedback">
-                      Please fill in the name
+                    <div class="form-group form-group-default">
+                      <label>Nama Ruangan</label>
+                      <input id="nama_ruangan" name="nama_ruangan" type="text" class="form-control" value="{{$ruangan->nama_ruangan}}">
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="form-group col-6">
-                      <label>Kategori Ruangan</label>
-                      <input type="text" class="form-control" id="kategori_id_kategori" name="kategori_id_kategori" value="{{$ruangan->kategori_id_kategori}}">
-                      <div class="invalid-feedback">
-                        Please fill in the name
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group form-group-default">
+                          <label>Kategori Ruangan</label>
+                          <input id="kategori_id_kategori" name="kategori_id_kategori" type="text" class="form-control" value="{{$ruangan->kategori_id_kategori}}">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group form-group-default">
+                          <label>Pemilik</label>
+                          <input id="id_pemilik" name="id_pemilik" type="text" class="form-control" value="{{$ruangan->id_pemilik}}">
+                        </div>
                       </div>
                     </div>
-                    <div class="form-group col-6">
-                      <label>Pemilik</label>
-                      <input type="text" class="form-control" id="id_pemilik" name="id_pemilik" value="{{$ruangan->id_pemilik}}">
-                      <div class="invalid-feedback">
-                        Please fill in the description
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
+                  <div class="form-group form-group-default">
                     <label>Harga Ruangan</label>
-                    <input type="text" class="form-control" id="harga" name="harga" value="{{$ruangan->harga}}">
-                    <div class="invalid-feedback">
-                      Please fill in the name
-                    </div>
+                    <input id="harga" name="harga" type="text" class="form-control" value="{{$ruangan->harga}}">
                   </div>
                   <div class="row">
-                    <div class="form-group col-6">
-                      <label>Ukuran Ruangan</label>
-                      <input type="text" class="form-control" id="ukuran" name="ukuran" value="{{$ruangan->ukuran}}">
-                      <div class="invalid-feedback">
-                        Please fill in the name
+                    <div class="col-md-6">
+                      <div class="form-group form-group-default">
+                        <label>Ukuran Ruangan</label>
+                        <input id="ukuran" name="ukuran" type="text" class="form-control" value="{{$ruangan->ukuran}}">
                       </div>
                     </div>
-                    <div class="form-group col-6">
-                      <label>Kapasitas Ruangan</label>
-                      <input type="text" class="form-control" id="kapasitas" name="kapasitas" value="{{$ruangan->kapasitas}}">
-                      <div class="invalid-feedback">
-                        Please fill in the name
+                    <div class="col-md-6">
+                      <div class="form-group form-group-default">
+                        <label>Kapasitas Ruangan</label>
+                        <input id="kapasitas" name="kapasitas" type="text" class="form-control" value="{{$ruangan->kapasitas}}">
                       </div>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label>Alamat Ruangan</label>
-                    <textarea class="form-control" required="" rows="2" name="alamat_ruangan">{{$ruangan->alamat_ruangan}}</textarea>
-                    <div class="invalid-feedback">
-                      Please fill in the description
+                    <div class="form-group form-group-default">
+                      <label>Alamat Ruangan</label>
+                      <textarea class="form-control" required="" rows="3" name="alamat_ruangan">{{$ruangan->alamat_ruangan}}</textarea>
                     </div>
-                  </div>
                   <div class="row">
-                    <div class="form-group col-6">
-                      <label>Kecamatan</label>
-                      <input type="text" class="form-control" id="kecamatan" name="kecamatan" value="{{$ruangan->kecamatan}}">
-                      <div class="invalid-feedback">
-                        Please fill in the name
+                    <div class="col-md-6 pr-0">
+                      <div class="form-group form-group-default">
+                        <label>Kecamatan</label>
+                        <input id="kecamatan" name="kecamatan" type="text" class="form-control" value="{{$ruangan->kecamatan}}">
                       </div>
                     </div>
-                    <div class="form-group  col-6">
-                      <label>Kabupaten</label>
-                      <input type="text" class="form-control" id="kabupaten" name="kabupaten" value="{{$ruangan->kabupaten}}">
-                      <div class="invalid-feedback">
-                        Please fill in the name
+                    <div class="col-md-6">
+                      <div class="form-group form-group-default">
+                        <label>Kabupaten</label>
+                        <input id="kabupaten" name="kabupaten" type="text" class="form-control" value="{{$ruangan->kabupaten}}">
                       </div>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label>Provinsi</label>
-                    <input type="text" class="form-control" id="provinsi" name="provinsi" value="{{$ruangan->provinsi}}">
-                    <div class="invalid-feedback">
-                      Please fill in the name
+                    <div class="form-group form-group-default">
+                      <label>Provinsi</label>
+                      <input id="provinsi" name="provinsi" type="text" class="form-control" value="{{$ruangan->provinsi}}">
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label>Deskripsi Ruangan</label>
-                    <textarea class="form-control" required="" rows="5" name="deskripsi">{{$ruangan->deskripsi}}</textarea>
-                    <div class="invalid-feedback">
-                      Please fill in the name
+                    <div class="form-group form-group-default">
+                      <label>Deskripsi Ruangan</label>
+                      <textarea class="form-control" required="" rows="6" name="deskripsi">{{$ruangan->deskripsi}}</textarea>
                     </div>
+                    <div class="form-group form-group-default">
+                      <label>Foto</label>
+                      <input id="foto" name="foto" type="file" class="form-control-file" value="{{$ruangan->foto}}">
+                    </div>
+                  <div class="modal-footer no-bd">
+                    <button type="submit" id="addRowButton" class="btn btn-primary">Simpan</button>
                   </div>
-                  <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
                 </form>
             </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  
 @endsection
         
     

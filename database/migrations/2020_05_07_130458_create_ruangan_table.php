@@ -28,7 +28,7 @@ class CreateRuanganTable extends Migration
             $table->string('kabupaten');
             $table->string('provinsi');
             $table->longText('deskripsi');
-            $table->string('gambar');
+            $table->string('foto');
             $table->timestamps();
         });
     }
