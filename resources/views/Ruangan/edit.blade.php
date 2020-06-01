@@ -8,7 +8,7 @@
                 <h4>Edit Data Ruangan</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('ruangan.update', $ruangan->id_ruangan) }}" method="POST">
+                <form action="{{ route('ruangan.update', $ruangan->id_ruangan) }}" method="POST" enctype="multipart/form-data">
                   {{csrf_field()}}
                     <div class="form-group form-group-default">
                       <label>Nama Ruangan</label>
@@ -74,6 +74,7 @@
                     </div>
                     <div class="form-group form-group-default">
                       <label>Foto</label>
+                      <img src="{{asset('ruangan/'.$ruangan->foto)}}" alt="" height="100">
                       <input id="foto" name="foto" type="file" class="form-control-file" value="{{$ruangan->foto}}">
                     </div>
                   <div class="modal-footer no-bd">

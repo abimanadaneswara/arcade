@@ -65,9 +65,9 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('/ulasan/{id_ulasan}/delete','UlasanController@delete')->name('ulasan.delete');
 
     Route::get('/administrator','AdminController@admin')->name('administrator.index');
-    Route::post('/administrator/create','AdminController@create')->name('administrator.create');
+    Route::post('/administrator/create','AdminController@store')->name('administrator.create');
     Route::get('/administrator/{id}/edit','AdminController@edit')->name('administrator.edit');
-    Route::post('/administrator/{id}/update','AdminController@update')->name('administrator.update');
+    Route::post('/administrator/{id}/update','AdminController@up')->name('administrator.update');
     Route::get('/administrator/{id}/delete','AdminController@delete')->name('administrator.delete');
 
     Route::get('/pemilik','PemilikController@pemilik')->name('pemilik.index');

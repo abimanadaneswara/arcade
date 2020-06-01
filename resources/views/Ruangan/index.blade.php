@@ -286,7 +286,7 @@
               </div>
               <div class="modal-body">
                 {{-- <p class="small">Create a new row using this form, make sure you fill them all</p> --}}
-                <form action="{{ route('ruangan.create') }}" method="POST">
+                <form action="{{ route('ruangan.create') }}" method="POST" enctype="multipart/form-data">
                   {{csrf_field()}}
                  <div class="row">
                     <div class="col-sm-12">
@@ -389,6 +389,7 @@
                 <th>Kabupaten</th>
                 <th>Provinsi</th>
                 <th>Deskripsi</th>
+                <th>Foto</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -406,6 +407,7 @@
                   <td>{{$ruangan->kabupaten}}</td>
                   <td>{{$ruangan->provinsi}}</td>
                   <td>{{$ruangan->deskripsi}}</td>
+              <td><img src="{{asset('ruangan/'.$ruangan->foto)}}" alt="" height="50"></td>
                   {{-- <td>
                     <a href="{{ route('ruangan.edit', $ruangan->id_ruangan) }}" class="btn btn-sm btn-warning"><i class="ion ion-android-create"></i></a>
                     <a href="{{ route('ruangan.delete', $ruangan->id_ruangan) }}" class="btn btn-sm btn-danger" onclick="return confirm ('Hapus data ini?')"><i class="ion ion-trash-a"></i></a>

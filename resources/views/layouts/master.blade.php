@@ -282,12 +282,12 @@
                        </li>
                        <li>
                            <a href="#">
-                               <span class="sub-item">Owner</span>
+                               <span class="sub-item">Pemilik</span>
                            </a>
                        </li>
                        <li>
                            <a href="{{ route('user.index') }}">
-                               <span class="sub-item">User</span>
+                               <span class="sub-item">Pengguna</span>
                            </a>
                        </li>
                    </ul>

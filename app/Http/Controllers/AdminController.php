@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Admin;
 
 class AdminController extends Controller
 {
@@ -37,9 +38,13 @@ class AdminController extends Controller
         
     }
 
-    public function create(Request $request)
+    public function store(Request $request)
     {
-        \App\Admin::create($request->all());
+        Admin::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
         return redirect('/admin/administrator')->with('sukses','Data berhasil disimpan!');
     } 
 
@@ -49,10 +54,16 @@ class AdminController extends Controller
         return view ('admin.edit',['admin' => $admin]);
     }
 
-    public function update(Request $request, $id)
+    public function up(Request $request, $id)
     {
         $admin = \App\Admin::find($id);
-        $admin->update($request->all());
+        // $admin->update($request->all());
+        // whereId($id)->update($request->all());
+        Admin::whereId($id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
         return redirect('/admin/administrator')->with('sukses','Data berhasil diupdate!');
     }
 
