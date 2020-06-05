@@ -54,6 +54,16 @@ class RuanganController extends Controller
     
     public function create(Request $request)
     {
+        $this->validate($request,[
+            'nama_ruangan' => 'required|min:5|unique:ruangan',
+            'harga' => 'required|numeric',
+            'ukuran' => 'required|numeric',
+            'kapasitas' => 'required||numeric',
+            'alamat_ruangan' => 'required',
+            'deskripsi' => 'required',
+            'foto' => 'mimes:jpg,png',
+            ]);
+            
         $file = $request->file('foto');
  
 		$nama_file = time()."_".$file->getClientOriginalName();
@@ -61,7 +71,9 @@ class RuanganController extends Controller
       	        // isi dengan nama folder tempat kemana file diupload
 		$tujuan_upload = 'ruangan';
 		$file->move($tujuan_upload,$nama_file);
- 
+        
+       
+
 		Ruangan::create([
             'nama_ruangan' => $request->nama_ruangan,
             'kategori_id_kategori' => $request->kategori_id_kategori,

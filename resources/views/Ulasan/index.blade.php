@@ -178,21 +178,30 @@
                   {{csrf_field()}}
                   <div class="row">
                     <div class="col-sm-12">
-                      <div class="form-group form-group-default">
+                      <div class="form-group form-group-default {{$errors->has('nama') ? ' has-error' : ''}}">
                         <label>Nama</label>
-                        <input id="nama" name="nama" type="text" class="form-control">
+                        <input id="nama" name="nama" type="text" class="form-control" value="{{old('nama')}}">
+                        @if ($errors->has('nama'))
+                        <span class="help-block">{{$errors->first('nama')}}</span>
+                        @endif
                       </div>
                     </div>
                     <div class="col-sm-12">
-                      <div class="form-group form-group-default">
+                      <div class="form-group form-group-default {{$errors->has('pekerjaan') ? ' has-error' : ''}}">
                         <label>Pekerjaan</label>
-                        <input id="pekerjaan" name="pekerjaan" type="text" class="form-control">
+                        <input id="pekerjaan" name="pekerjaan" type="text" class="form-control" value="{{old('pekerjaan')}}">
+                        @if ($errors->has('pekerjaan'))
+                        <span class="help-block">{{$errors->first('pekerjaan')}}</span>
+                        @endif
                       </div>
                     </div>
                     <div class="col-md-12">
-                      <div class="form-group form-group-default">
+                      <div class="form-group form-group-default {{$errors->has('desc_ulasan') ? ' has-error' : ''}}">
                         <label>Deskripsi Ulasan</label>
-                        <textarea class="form-control" required="" rows="6" name="desc_ulasan"></textarea>
+                        <textarea class="form-control" required="" rows="6" name="desc_ulasan">{{old('desc_ulasan')}}</textarea>
+                        @if ($errors->has('desc_ulasan'))
+                        <span class="help-block">{{$errors->first('desc_ulasan')}}</span>
+                        @endif
                       </div>
                     </div>
                 </div>

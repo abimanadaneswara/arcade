@@ -23,6 +23,11 @@ class KategoriController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request,[
+            'nama_kategori' => 'required|string',
+            'desc_kategori' => 'required',
+            ]);
+
         \App\Kategori::create($request->all());
         return redirect('/admin/kategori')->with('sukses','Data berhasil disimpan!');
     }

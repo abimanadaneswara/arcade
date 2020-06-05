@@ -290,75 +290,96 @@
                   {{csrf_field()}}
                  <div class="row">
                     <div class="col-sm-12">
-                      <div class="form-group form-group-default">
+                      <div class="form-group form-group-default {{$errors->has('nama_ruangan') ? ' has-error' : ''}}">
                         <label>Nama Ruangan</label>
-                        <input id="nama_ruangan" name="nama_ruangan" type="text" class="form-control" placeholder="..">
+                        <input id="nama_ruangan" name="nama_ruangan" type="text" class="form-control" value="{{old('nama_ruangan')}}">
+                         @if ($errors->has('nama_ruangan'))
+                        <span class="help-block">{{$errors->first('nama_ruangan')}}</span>
+                        @endif
                       </div>
                     </div>
                     <div class="col-md-6 pr-0">
                       <div class="form-group form-group-default">
                         <label>Kategori Ruangan</label>
-                        <input id="kategori_id_kategori" name="kategori_id_kategori" type="text" class="form-control" placeholder="..">
+                        <input id="kategori_id_kategori" name="kategori_id_kategori" type="text" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group form-group-default">
                         <label>Pemilik</label>
-                        <input id="id_pemilik" name="id_pemilik" type="text" class="form-control" placeholder="..">
+                        <input id="id_pemilik" name="id_pemilik" type="text" class="form-control">
                       </div>
                     </div>
                     <div class="col-sm-12">
-                      <div class="form-group form-group-default">
+                      <div class="form-group form-group-default {{$errors->has('harga') ? ' has-error' : ''}}">
                         <label>Harga Ruangan</label>
-                        <input id="harga" name="harga" type="text" class="form-control" placeholder="..">
+                        <input id="harga" name="harga" type="text" class="form-control" value="{{old('harga')}}">
+                         @if ($errors->has('harga'))
+                        <span class="help-block">{{$errors->first('harga')}}</span>
+                        @endif
                       </div>
                     </div>
                     <div class="col-md-6 pr-0">
-                      <div class="form-group form-group-default">
+                      <div class="form-group form-group-default {{$errors->has('ukuran') ? ' has-error' : ''}}">
                         <label>Ukuran Ruangan</label>
-                        <input id="ukuran" name="ukuran" type="text" class="form-control" placeholder="..">
+                        <input id="ukuran" name="ukuran" type="text" class="form-control" value="{{old('ukuran')}}">
+                         @if ($errors->has('ukuran'))
+                        <span class="help-block">{{$errors->first('ukuran')}}</span>
+                        @endif
                       </div>
                     </div>
                     <div class="col-md-6">
-                      <div class="form-group form-group-default">
+                      <div class="form-group form-group-default {{$errors->has('kapasitas') ? ' has-error' : ''}}">
                         <label>Kapasitas Ruangan</label>
-                        <input id="kapasitas" name="kapasitas" type="text" class="form-control" placeholder="..">
+                        <input id="kapasitas" name="kapasitas" type="text" class="form-control" value="{{old('kapasitas')}}">
+                         @if ($errors->has('kapasitas'))
+                        <span class="help-block">{{$errors->first('kapasitas')}}</span>
+                        @endif
                       </div>
                     </div>
                     <div class="col-md-12">
-                      <div class="form-group form-group-default">
+                      <div class="form-group form-group-default {{$errors->has('alamat_ruangan') ? ' has-error' : ''}}">
                         <label>Alamat Ruangan</label>
-                        <textarea class="form-control" required="" rows="3" name="alamat_ruangan"></textarea>
+                        <textarea class="form-control" required="" rows="3" name="alamat_ruangan">{{old('alamat_ruangan')}}</textarea>
+                         @if ($errors->has('alamat_ruangan'))
+                        <span class="help-block">{{$errors->first('alamat_ruangan')}}</span>
+                        @endif
                       </div>
                     </div>
                     <div class="col-md-6 pr-0">
                       <div class="form-group form-group-default">
                         <label>Kecamatan</label>
-                        <input id="kecamatan" name="kecamatan" type="text" class="form-control" placeholder="..">
+                        <input id="kecamatan" name="kecamatan" type="text" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group form-group-default">
                         <label>Kabupaten</label>
-                        <input id="kabupaten" name="kabupaten" type="text" class="form-control" placeholder="..">
+                        <input id="kabupaten" name="kabupaten" type="text" class="form-control">
                       </div>
                     </div>
                     <div class="col-sm-12">
                       <div class="form-group form-group-default">
                         <label>Provinsi</label>
-                        <input id="provinsi" name="provinsi" type="text" class="form-control" placeholder="..">
+                        <input id="provinsi" name="provinsi" type="text" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-12">
-                      <div class="form-group form-group-default">
+                      <div class="form-group form-group-default {{$errors->has('deskripsi') ? ' has-error' : ''}}">
                         <label>Deskripsi Ruangan</label>
-                        <textarea class="form-control" required="" rows="6" name="deskripsi"></textarea>
+                        <textarea class="form-control" required="" rows="6" name="deskripsi">{{old('deskripsi')}}</textarea>
+                         @if ($errors->has('deskripsi'))
+                        <span class="help-block">{{$errors->first('deskripsi')}}</span>
+                        @endif
                       </div>
                     </div>
                     <div class="col-sm-12">
-                      <div class="form-group form-group-default">
+                      <div class="form-group form-group-default{{$errors->has('foto') ? ' has-error' : ''}}">
                         <label>Foto</label>
                         <input id="foto" name="foto" type="file" class="form-control-file">
+                        @if ($errors->has('foto'))
+                        <span class="help-block">{{$errors->first('foto')}}</span>
+                        @endif
                       </div>
                     </div>
                   </div>

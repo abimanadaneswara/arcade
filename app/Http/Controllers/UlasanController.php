@@ -23,6 +23,12 @@ class UlasanController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request,[
+            'nama' => 'required|min:3',
+            'pekerjaan' => 'required|min:3',
+            'desc_ulasan' => 'required',
+            ]);
+
         \App\Ulasan::create($request->all());
         return redirect('/admin/ulasan')->with('sukses','Data berhasil disimpan!');
     }

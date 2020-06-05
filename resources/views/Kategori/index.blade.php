@@ -172,16 +172,19 @@
                   {{csrf_field()}}
                   <div class="row">
                     <div class="col-sm-12">
-                      <div class="form-group form-group-default">
+                      <div class="form-group form-group-default {{$errors->has('nama_kategori') ? ' has-error' : ''}}">
                         <label>Nama Kategori Ruangan</label>
-                        <input id="nama_kategori" name="nama_kategori" type="text" class="form-control">
+                      <input id="nama_kategori" name="nama_kategori" type="text" class="form-control" value="{{old('nama_kategori')}}">
+                        @if ($errors->has('nama_kategori'))
+                          <span class="help-block">{{$errors->first('nama_kategori')}}</span>
+                        @endif
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group form-group-default">
                         <label>Deskripsi Kategori Ruangan</label>
-                        <textarea class="form-control" required="" rows="6" name="desc_kategori"></textarea>
-                      </div>
+                        <textarea class="form-control" required="" rows="6" name="desc_kategori">{{old('desc_kategori')}}</textarea>
+                        </div>
                     </div>
                 </div>
               </div>

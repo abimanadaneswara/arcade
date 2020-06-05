@@ -71,10 +71,10 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('/administrator/{id}/delete','AdminController@delete')->name('administrator.delete');
 
     Route::get('/pemilik','PemilikController@pemilik')->name('pemilik.index');
-    Route::post('/pemilik/create','PemilikController@create')->name('pemilik.create');
-    Route::get('/pemilik/{id_pemilik}/edit','PemilikController@edit')->name('pemilik.edit');
-    Route::post('/pemilik/{id_pemilik}/update','PemilikController@update')->name('pemilik.update');
-    Route::get('/pemilik/{id_pemilik}/delete','PemilikController@delete')->name('pemilik.delete');
+    Route::post('/pemilik/create','PemilikController@store')->name('pemilik.create');
+    Route::get('/pemilik/{id}/edit','PemilikController@edit')->name('pemilik.edit');
+    Route::post('/pemilik/{id}/update','PemilikController@up')->name('pemilik.update');
+    Route::get('/pemilik/{id}/delete','PemilikController@delete')->name('pemilik.delete');
 
     Route::get('/user','UserController@user')->name('user.index');
     // Route::post('/user/create','UserController@create')->name('user.create');

@@ -40,6 +40,12 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'name' => 'required|min:3',
+            'email' => 'required|email|unique:admins',
+            'password' => 'required|min:8',
+            ]);
+
         Admin::create([
             'name' => $request->name,
             'email' => $request->email,

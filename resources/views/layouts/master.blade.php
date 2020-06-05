@@ -281,7 +281,7 @@
                            </a>
                        </li>
                        <li>
-                           <a href="#">
+                           <a href="{{ route('pemilik.index') }}">
                                <span class="sub-item">Pemilik</span>
                            </a>
                        </li>
