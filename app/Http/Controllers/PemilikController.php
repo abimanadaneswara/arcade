@@ -40,14 +40,14 @@ class PemilikController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {    
         $this->validate($request,[
             'name' => 'required|min:3',
-            'phone' => 'required|min:12|numeric',
+            'phone' => 'required|max:13|numeric',
             'address' => 'required',
             'email' => 'required|email|unique:owners',
             'password' => 'required|min:8',
-            ]);
+        ]);
 
         Pemilik::create([
             'name' => $request->name,

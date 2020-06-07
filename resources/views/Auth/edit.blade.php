@@ -63,14 +63,14 @@
 @endsection
          --}}
 
-@extends('layouts.master')
+@extends('layouts.masteredit')
 @section('content')
 
   <div class="row">
-    <div class="col-12 col-md-12 col-lg-12">
+    <div class="col-12 col-md-12 col-lg-11">
       <div class="card">
           <div class="card-header">
-              <h4>Edit Data User</h4>
+              <h4>EDIT DATA USER</h4>
           </div>
           <div class="card-body">
             <form action="{{ route('user.update', $user->id) }}" method="POST">

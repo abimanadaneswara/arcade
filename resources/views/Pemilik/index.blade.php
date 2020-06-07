@@ -50,9 +50,7 @@
               <div class="modal-header no-bd">
                 <h5 class="modal-title">
                   <span class="fw-mediumbold">
-                  Form</span> 
-                  <span class="fw-light">
-                    tambah data pemilik
+                    FORM TAMBAH DATA PEMILIK
                   </span>
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

@@ -1,11 +1,11 @@
-@extends('layouts.master')
+@extends('layouts.masteredit')
 @section('content')
 
-  <div class="row">
-    <div class="col-12 col-md-12 col-lg-12">
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-11">
       <div class="card">
           <div class="card-header">
-              <h4>Edit Data Pemilik</h4>
+              <h4>EDIT DATA PEMILIK</h4>
           </div>
           <div class="card-body">
             <form action="{{ route('pemilik.update', $pemilik->id) }}" method="POST">
